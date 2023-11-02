@@ -1,4 +1,4 @@
-#include "SceneTitle.hpp"
+#include "SceneTutorial.hpp"
 
 #include "core/Application.hpp"
 
@@ -15,20 +15,20 @@
 
 namespace lei3d
 {
-	std::unique_ptr<Scene> MakeSceneTitle()
+	std::unique_ptr<Scene> MakeSceneTutorial()
 	{
-		return std::make_unique<SceneTitle>();
+		return std::make_unique<SceneTutorial>();
 	}
 
-	SceneTitle::SceneTitle()
-	{
-	}
-
-	SceneTitle::~SceneTitle()
+	SceneTutorial::SceneTutorial()
 	{
 	}
 
-	void SceneTitle::OnLoad()
+	SceneTutorial::~SceneTutorial()
+	{
+	}
+
+	void SceneTutorial::OnLoad()
 	{
 		// load textures
 		stbi_set_flip_vertically_on_load(true);
@@ -196,7 +196,7 @@ namespace lei3d
 		// AudioPlayer::PlaySFX("win.mp3");
 	}
 
-	void SceneTitle::OnReset()
+	void SceneTutorial::OnReset()
 	{
 		// Just need to reset the backpack.
 		Entity* backpackObj = GetEntity("Backpack");
@@ -209,7 +209,7 @@ namespace lei3d
 		// AudioPlayer::PlaySFX("win.mp3");
 	}
 
-	void SceneTitle::OnUpdate()
+	void SceneTutorial::OnUpdate()
 	{
 		Entity* colorObj = GetEntity("Start Color Area");
 		colorObj->GetComponent<ColorSource>()->radius += 0.8;
@@ -225,7 +225,7 @@ namespace lei3d
 		fishObj->SetYawRotation(m_fishTheta * -360.0f / (2.0f * glm::pi<float>()));
 	}
 
-	void SceneTitle::OnPhysicsUpdate()
+	void SceneTutorial::OnPhysicsUpdate()
 	{
 		m_PhysicsWorld->Step(Application::DeltaTime());
 	}

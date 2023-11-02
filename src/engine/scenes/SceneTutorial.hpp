@@ -17,11 +17,11 @@ namespace lei3d
 	class SkyBox;
 	class PhysicsWorld;
 
-	class SceneTitle : public Scene
+	class SceneTutorial : public Scene
 	{
 	public:
-		SceneTitle();
-		~SceneTitle();
+		SceneTutorial();
+		~SceneTutorial();
 
 		void OnLoad() override;
 		void OnPhysicsUpdate() override;
@@ -38,5 +38,5 @@ namespace lei3d
 		float m_deltaTheta;
 	};
 
-	extern std::unique_ptr<Scene> MakeSceneTitle();
+	extern std::unique_ptr<Scene> MakeSceneTutorial();
 } // namespace lei3d
